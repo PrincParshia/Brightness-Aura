@@ -1,13 +1,14 @@
 {
-	"required": false,
-	"package": "princ.brightaura.mixin",
+	"required": true,
+	"package": "com.princ.brightnessaura.client.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"OptionsMixin",
-		"LivingEntityMixin",
-		"SliderControlMixin"
+        "OptionsMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
 	}
 }

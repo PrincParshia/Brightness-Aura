@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.10-SNAPSHOT'
+	id 'fabric-loom' version "${loom_version}"
 	id 'maven-publish'
 }
 
@@ -10,39 +10,38 @@ base {
 	archivesName = project.archives_base_name
 }
 
+loom {
+    def aw = file("src/main/resources/${project.archives_base_name}.accesswidener")
+    if (aw.exists()) {
+        accessWidenerPath = aw
+    }
+}
+
 repositories {
 	// Add repositories to retrieve artifacts from in here.
 	// You should only use this when depending on other mods because
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
-	maven {
-		url = "https://api.modrinth.com/maven"
-	}
-}
-
-loom {
-	accessWidenerPath = file("src/main/resources/brightness-aura.accesswidener")
 }
 
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	// mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	mappings loom.officialMojangMappings()
+    mappings loom.officialMojangMappings()
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-	modImplementation "maven.modrinth:sodium:mc1.21.5-0.6.13-fabric"
-	//modImplementation "maven.modrinth:princ:1.0.0"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	
 }
 
 processResources {
 	inputs.property "version", project.version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": project.version
+		expand "version": inputs.properties.version
 	}
 }
 
@@ -61,8 +60,10 @@ java {
 }
 
 jar {
+	inputs.property "archivesName", project.base.archivesName
+
 	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
+		rename { "${it}_${inputs.properties.archivesName}"}
 	}
 }
 

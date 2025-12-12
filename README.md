@@ -11,3 +11,6 @@ This mod gives you true fullbright by overriding Minecraft’s brightness cap (r
 ## 🧩 USAGE
 
 * Press `B` to toggle between max brightness and previous brightness.
+
+---
+![Comparison](https://raw.githubusercontent.com/PrincParshia/Brightness-Aura/refs/heads/assets/comparison.png)

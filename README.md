@@ -1,5 +1,5 @@
-[![CurseForge](https://img.shields.io/badge/CurseForge-0?style=for-the-badge&logo=curseforge&color=black)](https://www.curseforge.com/minecraft/mc-mods/anemos)
-[![MyProfile](https://img.shields.io/badge/Modrinth-Profile-0?style=for-the-badge&logo=modrinth&color=teal)](https://modrinth.com/user/PrincParshia)
+[![CurseForge](https://img.shields.io/badge/CurseForge-0?style=for-the-badge&logo=curseforge&color=black)](https://www.curseforge.com/minecraft/mc-mods/brightness-aura)
+[![Modrinth](https://img.shields.io/badge/Modrinth-0?style=for-the-badge&logo=modrinth&color=grey)](https://modrinth.com/mod/brightness-aura)
 
 > **NOTE**: Please prefer downloading [Anemos](https://modrinth.com/mod/anemos) instead for more features.
 

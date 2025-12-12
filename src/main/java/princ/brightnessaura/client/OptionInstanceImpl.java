@@ -1,4 +1,4 @@
-package com.princ.brightnessaura.client;
+package princ.brightnessaura.client;
 
 import com.mojang.serialization.Codec;
 import net.fabricmc.api.EnvType;
@@ -40,7 +40,7 @@ public class OptionInstanceImpl {
                 }
 
                 public R fromSliderValue(double d) {
-                    return (R) doubleFunction.apply(UnitDouble.this.fromSliderValue(d));
+                    return (R)doubleFunction.apply(UnitDouble.this.fromSliderValue(d));
                 }
 
                 public Codec<R> codec() {
@@ -52,7 +52,11 @@ public class OptionInstanceImpl {
         }
 
         public Codec<Double> codec() {
-            return Codec.withAlternative(Codec.doubleRange((double) 0.0F, (double) 15.0F), Codec.BOOL, (boolean_) -> boolean_ ? (double) 15.0F : (double) 0.0F);
+            return Codec.withAlternative(
+                    Codec.doubleRange((double) 0.0F, (double) 15.0F),
+                    Codec.BOOL,
+                    (boolean_) -> boolean_ ? (double) 15.0F : (double) 0.0F
+            );
         }
     }
 }

@@ -3,28 +3,24 @@
 	"id": "brightness-aura",
 	"version": "${version}",
 	"name": "Brightness Aura",
-	"description": "Allows the player to have max 1500% brightness instead of vanilla 100%, eliminating the darkness.",
+	"description": "Allows the player to have max 1500% brightness instead of vanilla 100%, eliminates darkness.",
 	"authors": [
 		"PrincParshia"
 	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "ARR",
+	"license": "All Rights Reserved",
 	"icon": "pack.png",
 	"environment": "client",
 	"entrypoints": {
 		"client": [
-			"com.princ.brightnessaura.client.BrightnessAura"
+			"princ.brightnessaura.client.BrightnessAura"
 		]
 	},
 	"mixins": [
-        "brightness-aura.client.mixins.json"
+		"brightness-aura.client.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.8",
+		"fabricloader": ">=0.18.2",
+		"minecraft": "~1.21.11",
 		"java": ">=21",
 		"fabric-api": "*"
 	}

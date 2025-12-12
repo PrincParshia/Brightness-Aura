@@ -1,6 +1,5 @@
-package com.princ.brightnessaura.client.mixin;
+package princ.brightnessaura.client.mixin;
 
-import com.princ.brightnessaura.client.OptionInstanceImpl;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.Options;
 import net.minecraft.network.chat.Component;
@@ -10,6 +9,7 @@ import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import princ.brightnessaura.client.OptionInstanceImpl;
 
 import static net.minecraft.client.Options.genericValueLabel;
 
@@ -20,10 +20,16 @@ public class OptionsMixin {
     @Mutable
     private OptionInstance<Double> gamma;
 
-    @Redirect(method = "<init>", at = @At(value = "FIELD", target = "Lnet/minecraft/client/Options;gamma:Lnet/minecraft/client/OptionInstance;"))
+    @Redirect(
+            method = "<init>",
+            at = @At(
+                    value = "FIELD",
+                    target = "Lnet/minecraft/client/Options;gamma:Lnet/minecraft/client/OptionInstance;"
+            )
+    )
     public void init(Options options, OptionInstance<?> instance) {
         this.gamma = new OptionInstance<>("options.gamma", OptionInstance.noTooltip(), (component, double_) -> {
-            int i = (int)(double_ * (double)100.0F);
+            int i = (int) (double_ * (double) 100.0F);
             if (i == 0) {
                 return genericValueLabel(component, Component.translatable("options.gamma.min"));
             } else if (i == 50) {
@@ -31,7 +37,7 @@ public class OptionsMixin {
             } else {
                 return i == 100 ? genericValueLabel(component, Component.translatable("options.gamma.max")) : genericValueLabel(component, i);
             }
-        }, OptionInstanceImpl.UnitDouble.INSTANCE, (double)0.5F, (double_) -> {
+        }, OptionInstanceImpl.UnitDouble.INSTANCE, (double) 0.5F, (double_) -> {
         });
     }
 }

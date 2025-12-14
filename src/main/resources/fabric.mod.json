@@ -18,6 +18,7 @@
 	"mixins": [
 		"brightness-aura.client.mixins.json"
 	],
+    "accessWidener": "brightness-aura.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.18.2",
 		"minecraft": "~1.21.11",

@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "princ.brightnessaura.client.mixin",
-	"compatibilityLevel": "JAVA_21",
+	"package": "princ.brightaura.mixin",
+	"compatibilityLevel": "JAVA_25",
 	"client": [
-        "OptionsMixin"
+		"client.OptionsMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

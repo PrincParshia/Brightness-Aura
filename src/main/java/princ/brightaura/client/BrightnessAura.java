@@ -45,7 +45,7 @@ public class BrightnessAura implements ClientModInitializer {
 	}
 
 	static {
-		CATEGORY = new KeyMapping.Category(withDefaultNamespace("misc"));
+		CATEGORY = new KeyMapping.Category(withDefaultNamespace("default"));
 		KEY = new KeyMapping(withKeyMappingPrefix("toggle"), InputConstants.Type.KEYSYM, InputConstants.KEY_B, CATEGORY);
 	}
 }

@@ -1,0 +1,33 @@
+{
+    "schemaVersion": 1,
+    "id": "${mod_id}",
+    "version": "${version}",
+    "name": "${mod_name}",
+    "description": "${description}",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "sources": "https://github.com/PrincParshia/Brightness-Aura"
+    },
+    "license": "${license}",
+    "icon": "${mod_id}.icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "princ.brightaura.client.BrightnessAura"
+        ]
+    },
+    "mixins": [
+        "${mod_id}.mixins.json",
+        "${mod_id}.fabric.mixins.json"
+    ],
+    "accessWidener": "brightness_aura.accesswidener",
+    "depends": {
+        "fabricloader": ">=${fabric_loader_version}",
+        "fabric-api": "*",
+        "minecraft": ">=${minecraft_version_min} <=${minecraft_version_max}",
+        "java": ">=${java_version}"
+    }
+}
+  

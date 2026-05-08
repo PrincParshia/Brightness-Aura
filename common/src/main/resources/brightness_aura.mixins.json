@@ -1,0 +1,13 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "princ.brightaura.client.mixin",
+    "compatibilityLevel": "JAVA_25",
+    "client": [
+        "OptionsMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
+

@@ -16,6 +16,7 @@ import static net.minecraft.client.Options.genericValueLabel;
 
 @Mixin(Options.class)
 public class OptionsMixin {
+
     @Mutable
     @Shadow
     @Final

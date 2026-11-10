@@ -19,15 +19,23 @@
         ]
     },
     "mixins": [
-        "${mod_id}.mixins.json",
-        "${mod_id}.fabric.mixins.json"
+        "${mod_id}.mixins.json"
     ],
     "accessWidener": "brightness_aura.accesswidener",
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
         "fabric-api": "*",
-        "minecraft": ">=${minecraft_version_min} <=${minecraft_version_max}",
+        "minecraft": "${minecraft_version}",
         "java": ">=${java_version}"
+    },
+    "custom": {
+        "modmenu": {
+            "links": {
+                "modmenu.modrinth": "https://modrinth.com/mod/brightness-aura",
+                "modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/brightness-aura",
+                "modmenu.kofi": "https://ko-fi.com/princparshia"
+            }
+        }
     }
 }
   

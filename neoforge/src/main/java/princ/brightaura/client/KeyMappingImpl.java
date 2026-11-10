@@ -14,7 +14,7 @@ import static princ.brightaura.client.Constants.*;
 @EventBusSubscriber(modid = NAMESPACE, value = Dist.CLIENT)
 public class KeyMappingImpl {
     public static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(withDefaultNamespace("general"));
-    public static final Lazy<KeyMapping> key = Lazy.of(() -> new KeyMapping(withKeyMappingPrefix("key"), InputConstants.Type.KEYSYM, InputConstants.KEY_B, CATEGORY));
+    public static final Lazy<KeyMapping> key = Lazy.of(() -> new KeyMapping(withKeyMappingPrefix("key"), InputConstants.Type.KEYBOARD, InputConstants.KEY_B, CATEGORY));
 
     @SubscribeEvent
     public static void registerAll(RegisterKeyMappingsEvent event) {
@@ -23,8 +23,7 @@ public class KeyMappingImpl {
 
     public static void listenClicks(ClientTickEvent.Post event) {
         if (key.get().consumeClick()) {
-            adjustGamma(BRIGHTNESS_STATE, 15.0, 1.0, config.transition, config.transitionTime);
+            toggle(brightnessState(), 15.0, 1.0, config.transition, config.transitionDuration);
         }
-        handleGammaTransition(BRIGHTNESS_STATE, config.transition);
     }
 }

@@ -6,13 +6,12 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.network.chat.Component;
 import princ.brightaura.client.config.Config;
 
 import static princ.brightaura.client.Constants.config;
 
 public class BrightnessAura implements ClientModInitializer {
-    
+
     @Override
     public void onInitializeClient() {
         KeyMappingImpl.registerAll();
@@ -33,10 +32,10 @@ public class BrightnessAura implements ClientModInitializer {
                                             })
                                     )
                             )
-                            .then(ClientCommands.literal("transition_time")
+                            .then(ClientCommands.literal("transition_duration")
                                     .then(ClientCommands.argument("ticks", IntegerArgumentType.integer(1))
                                             .executes(context -> {
-                                                config.transitionTime = IntegerArgumentType.getInteger(context, "ticks");
+                                                config.transitionDuration = IntegerArgumentType.getInteger(context, "ticks");
                                                 config.save();
                                                 return 1;
                                             })

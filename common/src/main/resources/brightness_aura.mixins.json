@@ -4,10 +4,14 @@
     "package": "princ.brightaura.client.mixin",
     "compatibilityLevel": "JAVA_25",
     "client": [
+        "renderer.LightmapRenderStateExtractorMixin",
         "OptionsMixin"
     ],
     "injectors": {
         "defaultRequire": 1
+    },
+    "overwrites": {
+        "requireAnnotations": true
     }
 }
 

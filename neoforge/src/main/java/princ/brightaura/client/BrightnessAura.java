@@ -3,7 +3,6 @@ package princ.brightaura.client;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.minecraft.commands.Commands;
-import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -41,10 +40,10 @@ public class BrightnessAura {
                                         })
                                 )
                         )
-                        .then(Commands.literal("transition_time")
+                        .then(Commands.literal("transition_duration")
                                 .then(Commands.argument("value", IntegerArgumentType.integer(1))
                                         .executes(context -> {
-                                            config.transitionTime = IntegerArgumentType.getInteger(context, "value");
+                                            config.transitionDuration = IntegerArgumentType.getInteger(context, "value");
                                             config.save();
                                             return 1;
                                         })

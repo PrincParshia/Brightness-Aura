@@ -6,6 +6,7 @@ import net.minecraft.client.OptionInstance;
 import java.util.Optional;
 
 public class OptionInstanceImpl {
+
     public enum UnitDouble implements OptionInstance.SliderableValueSet<Double> {
         INSTANCE;
 

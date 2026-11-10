@@ -10,7 +10,7 @@ public class Config {
     private Path configPath;
 
     public boolean transition = true;
-    public int transitionTime = 30;
+    public int transitionDuration = 30;
 
     public void init(Path configDir) {
         this.configPath = configDir.resolve("brightness_aura.toml");
@@ -30,7 +30,7 @@ public class Config {
                 if (parts.length != 2) continue;
                 switch (parts[0].trim()) {
                     case "transition" -> this.transition = Boolean.parseBoolean(parts[1].trim());
-                    case "transitionTime" -> this.transitionTime = Integer.parseInt(parts[1].trim());
+                    case "transitionDuration" -> this.transitionDuration = Integer.parseInt(parts[1].trim());
                 }
             }
         } catch (IOException e) {
@@ -42,8 +42,8 @@ public class Config {
         try {
             Files.writeString(this.configPath, """
                     transition = %s
-                    transitionTime = %d
-                    """.formatted(this.transition, this.transitionTime)
+                    transitionDuration = %d
+                    """.formatted(this.transition, this.transitionDuration)
             );
         } catch (IOException e) {
             LOG.error("Failed to save config: {}", e.getMessage());
